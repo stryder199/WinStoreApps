@@ -8,5 +8,8 @@
 #include <collection.h>
 #include <ppltasks.h>
 
+#include "Common\NavigationHelper.h"
+#include "Common\RelayCommand.h"
+#include "Common\SuspensionManager.h"
 #include "DataModel\FileSystemItemDataSource.h"
 #include "App.xaml.h"
