@@ -8,4 +8,5 @@
 #include <collection.h>
 #include <ppltasks.h>
 
+#include "DataModel\FileSystemItemDataSource.h"
 #include "App.xaml.h"

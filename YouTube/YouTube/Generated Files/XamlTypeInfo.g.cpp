@@ -28,28 +28,38 @@
 
 ::Windows::UI::Xaml::Markup::IXamlType^ ::XamlTypeInfo::InfoProvider::XamlTypeInfoProvider::CheckOtherMetadataProvidersForName(::Platform::String^ typeName)
 {
+    ::Windows::UI::Xaml::Markup::IXamlType^ foundXamlType = nullptr;
     for (unsigned int i = 0; i < OtherProviders->Size; i++)
     {
         auto xamlType = OtherProviders->GetAt(i)->GetXamlType(typeName);
         if(xamlType != nullptr)
         {
-            return xamlType;
+            if(xamlType->IsConstructible)    // not Constructible means it might be a Return Type Stub
+            {
+                return xamlType;
+            }
+            foundXamlType = xamlType;
         }
     }
-    return nullptr;
+    return foundXamlType;
 }
 
 ::Windows::UI::Xaml::Markup::IXamlType^ ::XamlTypeInfo::InfoProvider::XamlTypeInfoProvider::CheckOtherMetadataProvidersForType(::Windows::UI::Xaml::Interop::TypeName t)
 {
+    ::Windows::UI::Xaml::Markup::IXamlType^ foundXamlType = nullptr;
     for (unsigned int i = 0; i < OtherProviders->Size; i++)
     {
         auto xamlType = OtherProviders->GetAt(i)->GetXamlType(t);
         if(xamlType != nullptr)
         {
-            return xamlType;
+            if(xamlType->IsConstructible)    // not Constructible means it might be a Return Type Stub
+            {
+                return xamlType;
+            }
+            foundXamlType = xamlType;
         }
     }
-    return nullptr;
+    return foundXamlType;
 }
 
 ::Windows::UI::Xaml::Markup::IXamlType^ ::XamlTypeInfo::InfoProvider::XamlTypeInfoProvider::CreateXamlType(::Platform::String^ typeName)
@@ -122,6 +132,7 @@
                 auto newItem = (Platform::Object^)item;
                 collection->Insert(newKey, newItem);
             };
+        userType->SetIsReturnTypeStub();
         return userType;
     }
 
@@ -144,6 +155,7 @@
     {
         ::XamlTypeInfo::InfoProvider::XamlUserType^ userType = ref new ::XamlTypeInfo::InfoProvider::XamlUserType(this, typeName, GetXamlTypeByName(L"Object"));
         userType->KindOfType = ::Windows::UI::Xaml::Interop::TypeKind::Custom;
+        userType->SetIsReturnTypeStub();
         return userType;
     }
 
@@ -186,6 +198,7 @@
                 auto newItem = (YouTube::Data::SampleDataItem^)item;
                 collection->Append(newItem);
             };
+        userType->SetIsReturnTypeStub();
         return userType;
     }
 
@@ -209,6 +222,7 @@
                 auto newItem = (YouTube::Data::SampleDataGroup^)item;
                 collection->Append(newItem);
             };
+        userType->SetIsReturnTypeStub();
         return userType;
     }
 

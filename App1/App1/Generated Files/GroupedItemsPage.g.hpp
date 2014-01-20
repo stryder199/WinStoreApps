@@ -40,6 +40,10 @@ void ::App1::GroupedItemsPage::Connect(int connectionId, Platform::Object^ targe
         (safe_cast<::Windows::UI::Xaml::Controls::ListViewBase^>(target))->ItemClick +=
             ref new ::Windows::UI::Xaml::Controls::ItemClickEventHandler(this, (void (::App1::GroupedItemsPage::*)(Platform::Object^, Windows::UI::Xaml::Controls::ItemClickEventArgs^))&GroupedItemsPage::ItemView_ItemClick);
         break;
+    case 2:
+        (safe_cast<::Windows::UI::Xaml::Controls::Primitives::ButtonBase^>(target))->Click +=
+            ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::App1::GroupedItemsPage::*)(Platform::Object^, Windows::UI::Xaml::RoutedEventArgs^))&GroupedItemsPage::Header_Click);
+        break;
     }
     (void)connectionId; // Unused parameter
     (void)target; // Unused parameter

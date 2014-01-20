@@ -8,6 +8,15 @@
 //     the code is regenerated.
 //------------------------------------------------------------------------------
 
+namespace Windows {
+    namespace UI {
+        namespace Xaml {
+            namespace Data {
+                ref class CollectionViewSource;
+            }
+        }
+    }
+}
 
 namespace FileExplorer
 {
@@ -21,6 +30,7 @@ namespace FileExplorer
     private:
         bool _contentLoaded;
     
+        private: ::Windows::UI::Xaml::Data::CollectionViewSource^ itemsViewSource;
     };
 }
 
