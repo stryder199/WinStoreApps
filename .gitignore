@@ -154,6 +154,11 @@ $RECYCLE.BIN/
 # My stuff
 # ===========================
 
+# Game Engine
 Formatted_3D_Models/*
 NewGame/Engine/data/*
 3D_Models/*
+
+#WinStore Generated Files
+*.g.h
+*.g.cpp
