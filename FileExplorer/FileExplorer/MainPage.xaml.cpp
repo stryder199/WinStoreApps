@@ -27,6 +27,31 @@ using namespace Windows::UI::Xaml::Navigation;
 MainPage::MainPage()
 {
 	InitializeComponent();
+	SetValue(_defaultViewModelProperty, ref new Map<String^, Object^>(std::less<String^>()));
+	auto navigationHelper = ref new Common::NavigationHelper(this);
+	SetValue(_navigationHelperProperty, navigationHelper);
+	navigationHelper->LoadState += ref new Common::LoadStateEventHandler(this, &MainPage::LoadState);
+}
+
+DependencyProperty^ MainPage::_defaultViewModelProperty = DependencyProperty::Register("DefaultViewModel", TypeName(IObservableMap<String^, Object^>::typeid), TypeName(MainPage::typeid), nullptr);
+
+/// <summary>
+/// used as a trivial view model.
+/// </summary>
+IObservableMap<String^, Object^>^ MainPage::DefaultViewModel::get()
+{
+	return safe_cast<IObservableMap<String^, Object^>^>(GetValue(_defaultViewModelProperty));
+}
+
+DependencyProperty^ MainPage::_navigationHelperProperty = DependencyProperty::Register("NavigationHelper", TypeName(Common::NavigationHelper::typeid), TypeName(MainPage::typeid), nullptr);
+
+/// <summary>
+/// Gets an implementation of <see cref="NavigationHelper"/> designed to be
+/// used as a trivial view model.
+/// </summary>
+Common::NavigationHelper^ MainPage::NavigationHelper::get()
+{
+	return safe_cast<Common::NavigationHelper^>(GetValue(_navigationHelperProperty));
 }
 
 /// <summary>
@@ -44,9 +69,17 @@ void MainPage::LoadState(Object^ sender, Common::LoadStateEventArgs^ e)
 	(void) sender;	// Unused parameter
 	(void) e;		// Unused parameter
 
+	String^ navigationParameter = safe_cast<String^>(e->NavigationParameter);
+
+	// Allow saved page state to override the initial item to display
+	if (e->PageState != nullptr && e->PageState->HasKey("SelectedItem"))
+	{
+		navigationParameter = safe_cast<String^>(e->PageState->Lookup("SelectedItem"));
+	}
+
 	// TODO: Create an appropriate data model for your problem domain to replace the sample data
-	Data::FSDataSource::GetItems()
-		.then([this](IIterable<Data::FSDataItem^>^ FSitems)
+	Data::FSDataSource::GetItem(safe_cast<String^>(navigationParameter))
+		.then([this](Data::FSDataItem^ FSitems)
 	{
 		DefaultViewModel->Insert("Items", FSitems);
 	}, task_continuation_context::use_current());

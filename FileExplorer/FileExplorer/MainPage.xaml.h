@@ -25,10 +25,19 @@ namespace FileExplorer
 		{
 			Windows::Foundation::Collections::IObservableMap<Platform::String^, Platform::Object^>^  get();
 		}
+		/// <summary>
+		/// NavigationHelper is used on each page to aid in navigation and 
+		/// process lifetime management
+		/// </summary>
+		property Common::NavigationHelper^ NavigationHelper
+		{
+			Common::NavigationHelper^ get();
+		}
 
 	private:
 		void MainPage::LoadState(Object^ sender, Common::LoadStateEventArgs^ e);
 
 		static Windows::UI::Xaml::DependencyProperty^ _defaultViewModelProperty;
+		static Windows::UI::Xaml::DependencyProperty^ _navigationHelperProperty;
 	};
 }
