@@ -7,7 +7,7 @@
 
 #include "MainPage.g.h"
 
-namespace FileExplorer
+namespace EmptyTest
 {
 	/// <summary>
 	/// An empty page that can be used on its own or navigated to within a Frame.
@@ -16,5 +16,6 @@ namespace FileExplorer
 	{
 	public:
 		MainPage();
+
 	};
 }

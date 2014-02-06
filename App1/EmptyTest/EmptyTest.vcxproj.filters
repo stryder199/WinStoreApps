@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>ae1af383-6500-4d66-a065-f6e50ed2f9cf</UniqueIdentifier>
+    </Filter>
     <Filter Include="Assets">
-      <UniqueIdentifier>26b5a70b-5f86-48c4-8cea-ae91fa72f450</UniqueIdentifier>
+      <UniqueIdentifier>de64a99c-3add-4932-97f8-36a51bef9ece</UniqueIdentifier>
       <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
     </Filter>
     <Image Include="Assets\Logo.scale-100.png">
@@ -18,7 +21,7 @@
       <Filter>Assets</Filter>
     </Image>
     <Filter Include="DataModel">
-      <UniqueIdentifier>{290189db-bc02-465e-a59f-e87b5bc3061a}</UniqueIdentifier>
+      <UniqueIdentifier>{6321c5cf-8388-400c-8a25-f31bcee82927}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -28,7 +31,7 @@
     <ClCompile Include="App.xaml.cpp" />
     <ClCompile Include="MainPage.xaml.cpp" />
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="DataModel\FileSystemItemDataSource.cpp">
+    <ClCompile Include="DataModel\SimpleDataSource.cpp">
       <Filter>DataModel</Filter>
     </ClCompile>
   </ItemGroup>
@@ -36,7 +39,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h" />
     <ClInclude Include="MainPage.xaml.h" />
-    <ClInclude Include="DataModel\FileSystemItemDataSource.h">
+    <ClInclude Include="DataModel\SimpleDataSource.h">
       <Filter>DataModel</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,7 +47,7 @@
     <AppxManifest Include="Package.appxmanifest" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="FileExplorer_TemporaryKey.pfx" />
+    <None Include="EmptyTest_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainPage.xaml" />

@@ -8,17 +8,18 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <DataTemplate x:Key="FileDataTemplate">
-            <Grid HorizontalAlignment="Left" Width="150" Height="150">
-                <StackPanel VerticalAlignment="Bottom" Background="Black">
-                    <TextBlock Text="Hi" Foreground="Red" Height="60" Margin="15,0,15,0" FontFamily="Global User Interface"/>
-                    <TextBlock Text="Hi" Foreground="#9949FF00" TextWrapping="NoWrap" Margin="15,0,15,10" FontFamily="Global User Interface"/>
+        <CollectionViewSource x:Name="itemsViewSource" IsSourceGrouped="true" Source="{Binding}" ItemsPath="Items"/>
+        <DataTemplate x:Name="FileDataTemplate">
+            <Grid Width="250" Height="250">
+                <Border Background="#FF760000">
+                </Border>
+                <StackPanel VerticalAlignment="Bottom" Background="#FF5E5E5E">
+                    <TextBlock Text="{Binding Filename}" Height="60" Margin="15,0,15,0"/>
+                    <TextBlock Text="{Binding FileSize}" TextWrapping="NoWrap" Margin="15,0,15,10" FontFamily="Global User Interface"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
     </Page.Resources>
-    
-    
 
     <Grid HorizontalAlignment="Left" Height="768" VerticalAlignment="Top" Width="1366" Background="#FF595959">
         <Grid.RowDefinitions>
@@ -49,12 +50,29 @@
                     </ListBox>
                 </ListBox>
             </Grid>
-            <GridView Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="618" Margin="10,10,0,0" Width="1046" ItemTemplate="{StaticResource FileDataTemplate}">
+            <GridView x:Name="gridview1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Height="618" Margin="10,10,0,0" Width="1046" ItemTemplate="{StaticResource FileDataTemplate}" ItemsSource="{Binding Source={StaticResource itemsViewSource}}">
+                <GridView.GroupStyle>
+                    <GroupStyle>
+                        <GroupStyle.HeaderTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,0,0,2">
+                                    <Button Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}"
+                                    AutomationProperties.Name="Group Title"
+                                    Style="{StaticResource TextBlockButtonStyle}" >
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Title}" Margin="0,-11,10,10" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="NoWrap" />
+                                        </StackPanel>
+                                    </Button>
+                                </Grid>
+                            </DataTemplate>
+                        </GroupStyle.HeaderTemplate>
+                    </GroupStyle>
+                </GridView.GroupStyle>
             </GridView>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="120" VerticalAlignment="Top" Width="1366">
-            <Button Content="Back" HorizontalAlignment="Left" Margin="18,49,0,0" VerticalAlignment="Top" Click="Button_Click" Height="62" Width="113" FontSize="24"/>
-            <Button Content="Forward" HorizontalAlignment="Left" Margin="146,49,0,0" VerticalAlignment="Top" Height="62" Width="115" Click="Button_Click_1" FontSize="22"/>
+            <Button Content="Back" HorizontalAlignment="Left" Margin="18,49,0,0" VerticalAlignment="Top" Height="62" Width="113" FontSize="24"/>
+            <Button Content="Forward" HorizontalAlignment="Left" Margin="146,49,0,0" VerticalAlignment="Top" Height="62" Width="115" FontSize="22"/>
             <TextBox HorizontalAlignment="Left" Margin="297,57,0,0" TextWrapping="Wrap" Text="C:\Users\Mark\" VerticalAlignment="Top" Width="949" Height="41" FontSize="24" FontWeight="Bold" Background="White"/>
             <Button Content="Go" HorizontalAlignment="Left" Margin="1243,54,0,0" VerticalAlignment="Top" Height="47" Width="65"/>
             <ProgressRing HorizontalAlignment="Left" Margin="1212,78,0,0" VerticalAlignment="Top"/>
