@@ -31,3 +31,8 @@ MainPage::MainPage()
 	FSDataSource^ fsDataSource = ref new FSDataSource();
 	itemsViewSource->Source = fsDataSource->Groups;
 }
+
+void FileExplorer::MainPage::TextBox_TextChanged(Platform::Object^ sender, Windows::UI::Xaml::Controls::TextChangedEventArgs^ e)
+{
+
+}

@@ -11,9 +11,9 @@
         <CollectionViewSource x:Name="itemsViewSource" IsSourceGrouped="true" Source="{Binding}" ItemsPath="Items"/>
         <DataTemplate x:Name="FileDataTemplate">
             <Grid Width="250" Height="250">
-                <Border Background="#FF760000">
+                <Border Background="#FFB764D4">
                 </Border>
-                <StackPanel VerticalAlignment="Bottom" Background="#FF5E5E5E">
+                <StackPanel VerticalAlignment="Bottom" Background="#FF666668">
                     <TextBlock Text="{Binding Filename}" Height="60" Margin="15,0,15,0"/>
                     <TextBlock Text="{Binding FileSize}" TextWrapping="NoWrap" Margin="15,0,15,10" FontFamily="Global User Interface"/>
                 </StackPanel>
@@ -21,7 +21,7 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid HorizontalAlignment="Left" Height="768" VerticalAlignment="Top" Width="1366" Background="#FF595959">
+    <Grid HorizontalAlignment="Left" Height="768" VerticalAlignment="Top" Width="1366" Background="#FF52026E">
         <Grid.RowDefinitions>
             <RowDefinition Height="120"/>
             <RowDefinition Height="*"/>
@@ -32,25 +32,25 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid HorizontalAlignment="Left" Height="638" VerticalAlignment="Top" Width="323">
-                <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="313" Height="628" Background="#FF9EAEDF">
-                    <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="323">
-                        <Button Content="Favorites" Width="301" BorderBrush="{x:Null}" BorderThickness="0" HorizontalContentAlignment="Left" Padding="0" FontSize="14" VerticalContentAlignment="Top" VerticalAlignment="Center" UseLayoutRounding="True" Foreground="Black" Background="Transparent"  />
+                <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderThickness="0" UseLayoutRounding="True" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Padding="-10,0,0,0" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" Foreground="{x:Null}" BorderBrush="{x:Null}" ManipulationMode="None" IsHitTestVisible="False">
+                    <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderThickness="0" HorizontalContentAlignment="Left" Padding="-10,0,0,0" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" Foreground="{x:Null}" BorderBrush="{x:Null}" IsHitTestVisible="False">
+                        <Button Content="&gt; Favorites" Width="257" BorderBrush="{x:Null}" BorderThickness="0" HorizontalContentAlignment="Left" Padding="0,10" VerticalContentAlignment="Top" VerticalAlignment="Center" UseLayoutRounding="True" Foreground="Black" Background="#FFAC3BD4" FontSize="20"  />
                     </ListBox>
-                    <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="323">
-                        <Button Content="Recent" Width="301" BorderBrush="{x:Null}" BorderThickness="0" HorizontalContentAlignment="Left" Padding="0" FontSize="14" VerticalContentAlignment="Top" VerticalAlignment="Center" UseLayoutRounding="True" Foreground="Black"/>
+                    <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Padding="-10,0,0,0" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" BorderBrush="{x:Null}" Foreground="{x:Null}" IsHitTestVisible="False">
+                        <Button Content="&gt; Recent" Width="256" BorderBrush="{x:Null}" BorderThickness="0" HorizontalContentAlignment="Left" Padding="0,10" VerticalContentAlignment="Top" VerticalAlignment="Center" UseLayoutRounding="True" Foreground="Black" Background="#FFAC3BD4" FontSize="20"/>
                     </ListBox>
-                    <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="323">
-                        <Button Content="My PC" Width="301" BorderBrush="{x:Null}" BorderThickness="0" HorizontalContentAlignment="Left" Padding="0" FontSize="14" VerticalContentAlignment="Top" VerticalAlignment="Center" UseLayoutRounding="True" Foreground="Black"  />
-                        <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="323">
-                            <Button Content="C:" Width="301" BorderBrush="{x:Null}" BorderThickness="0" HorizontalContentAlignment="Left" Padding="0" FontSize="14" VerticalContentAlignment="Top" VerticalAlignment="Center" UseLayoutRounding="True" Foreground="Black"  />
+                    <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" BorderThickness="0" Margin="0" Padding="-10,0,0,0" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" Foreground="{x:Null}" BorderBrush="{x:Null}" IsHitTestVisible="False">
+                        <Button Content="&gt; My PC" Width="254" BorderBrush="{x:Null}" BorderThickness="0" HorizontalContentAlignment="Left" Padding="0,10" VerticalContentAlignment="Top" VerticalAlignment="Center" UseLayoutRounding="True" Foreground="Black" Background="#FFAC3BD4" FontSize="20"  />
+                        <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" UseLayoutRounding="True" BorderThickness="0" Padding="-10,0,0,0" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" BorderBrush="{x:Null}" Foreground="{x:Null}" IsHitTestVisible="False">
+                            <Button Content="&gt; C:" Width="252" BorderBrush="{x:Null}" BorderThickness="0" HorizontalContentAlignment="Left" Padding="0,10" FontSize="20" VerticalContentAlignment="Top" VerticalAlignment="Center" UseLayoutRounding="True" Foreground="Black" Background="#FFAC3BD4"  />
                         </ListBox>
                     </ListBox>
-                    <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="323">
-                        <Button Content="Network" Width="301" BorderBrush="{x:Null}" BorderThickness="0" HorizontalContentAlignment="Left" Padding="0" FontSize="14" VerticalContentAlignment="Top" VerticalAlignment="Center" UseLayoutRounding="True" Foreground="Black"  />
+                    <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" Padding="-10,0,0,0" Margin="0" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" Foreground="{x:Null}" BorderBrush="{x:Null}" ManipulationMode="None" IsHitTestVisible="False">
+                        <Button Content="&gt; Network" Width="258" BorderBrush="{x:Null}" BorderThickness="0" HorizontalContentAlignment="Left" Padding="0,10" FontSize="20" VerticalContentAlignment="Top" VerticalAlignment="Center" UseLayoutRounding="True" Foreground="Black" Background="#FFAC3BD4" Margin="0"  />
                     </ListBox>
                 </ListBox>
             </Grid>
-            <GridView x:Name="gridview1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" Height="618" Margin="10,10,0,0" Width="1046" ItemTemplate="{StaticResource FileDataTemplate}" ItemsSource="{Binding Source={StaticResource itemsViewSource}}">
+            <GridView x:Name="gridview1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="618" Margin="0" Width="1046" ItemTemplate="{StaticResource FileDataTemplate}" ItemsSource="{Binding Source={StaticResource itemsViewSource}}" Padding="0,0,0,-10">
                 <GridView.GroupStyle>
                     <GroupStyle>
                         <GroupStyle.HeaderTemplate>
@@ -73,7 +73,7 @@
         <Grid HorizontalAlignment="Left" Height="120" VerticalAlignment="Top" Width="1366">
             <Button Content="Back" HorizontalAlignment="Left" Margin="18,49,0,0" VerticalAlignment="Top" Height="62" Width="113" FontSize="24"/>
             <Button Content="Forward" HorizontalAlignment="Left" Margin="146,49,0,0" VerticalAlignment="Top" Height="62" Width="115" FontSize="22"/>
-            <TextBox HorizontalAlignment="Left" Margin="297,57,0,0" TextWrapping="Wrap" Text="C:\Users\Mark\" VerticalAlignment="Top" Width="949" Height="41" FontSize="24" FontWeight="Bold" Background="White"/>
+            <TextBox HorizontalAlignment="Left" Margin="297,57,0,0" TextWrapping="Wrap" Text="Pictures Folder" VerticalAlignment="Top" Width="949" Height="41" FontSize="24" FontWeight="Bold" Background="White" TextChanged="TextBox_TextChanged"/>
             <Button Content="Go" HorizontalAlignment="Left" Margin="1243,54,0,0" VerticalAlignment="Top" Height="47" Width="65"/>
             <ProgressRing HorizontalAlignment="Left" Margin="1212,78,0,0" VerticalAlignment="Top"/>
         </Grid>
