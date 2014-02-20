@@ -49,4 +49,7 @@
   <ItemGroup>
     <Page Include="MainPage.xaml" />
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="config.xml" />
+  </ItemGroup>
 </Project>
